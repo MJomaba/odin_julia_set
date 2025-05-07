@@ -2,7 +2,7 @@ julia_mod <- odin.dust::odin_dust("iim_julia.R")
 mod <- odin.dust::odin_dust("iim_sierpinski.R")
 
 
-sierpinski <- mod$new(pars=list(), 0, 100000)
+sierpinski <- mod$new(pars=list(), 0, 1000000)
 png(file="animations/temp_image%02d.png", width=400, height=400)
 for(i in 0:30){
   z <- sierpinski$run(i)
@@ -18,17 +18,17 @@ for(i in 0:30){
 dev.off()
 
 
-r2 <- image_read(paste0("animations/temp_image",sprintf("%02d", 1),".png"))
+r2 <- magick::image_read(paste0("animations/temp_image",sprintf("%02d", 1),".png"))
 for(i in 2:31){
-  r1 <- image_read(paste0("animations/temp_image",sprintf("%02d", i),".png"))
+  r1 <- magick::image_read(paste0("animations/temp_image",sprintf("%02d", i),".png"))
   r2 <- c(r2,r1)
 }
 file.remove(list.files(pattern=".png"))
-animation<- image_animate(r2, fps = 1, dispose = "previous")
-image_write(animation, "animations/odin_sierpinski.gif")
+animation<- magick::image_animate(r2, fps = 1, dispose = "previous")
+magick::image_write(animation, "animations/odin_sierpinski.gif")
 
 c <- c(-0.8,0.156)
-julia <- julia_mod$new(pars=list(x_c=c[1], y_c=c[2]), 0, 100000)
+julia <- julia_mod$new(pars=list(x_c=c[1], y_c=c[2]), 0, 1000000)
 #Creating countdown .png files from 10 to "GO!"
 png(file="animations/temp_image%02d.png", width=600, height=400)
 for(i in 0:30){
@@ -48,14 +48,14 @@ for(i in 0:30){
 dev.off()
 
 
-r2 <- image_read(paste0("animations/temp_image",sprintf("%02d", 1),".png"))
+r2 <- magick::image_read(paste0("animations/temp_image",sprintf("%02d", 1),".png"))
 for(i in 2:31){
-  r1 <- image_read(paste0("animations/temp_image",sprintf("%02d", i),".png"))
+  r1 <- magick::image_read(paste0("animations/temp_image",sprintf("%02d", i),".png"))
   r2 <- c(r2,r1)
 }
 file.remove(Sys.glob("animations/*.png"))
-animation<- image_animate(r2, fps = 1, dispose = "previous")
-image_write(animation, "animations/odin_julia.gif")
+animation<- magick::image_animate(r2, fps = 1, dispose = "previous")
+magick::image_write(animation, "animations/odin_julia.gif")
 
 
 

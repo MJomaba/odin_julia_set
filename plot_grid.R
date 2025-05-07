@@ -36,7 +36,7 @@ for(i in 1:n_samp){
   z_minus[i,2] <- rho*sin(phi+3.141593)
 }
 
-#z_julia <- julia$run(n_iter)
+z_julia <- julia$run(n_iter)
 plot(z_julia[1,],z_julia[2,],
        pch=".", xlim=c(-2,2), ylim=c(-1.5,1.5))
 points(z_plus[,1],z_plus[,2], pch=".", col="red")
