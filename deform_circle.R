@@ -28,5 +28,6 @@ z_julia <- dust2::dust_system_simulate(julia, times = n_iter)
 for(i in 1:n_samples)
   points(pars[[i]]$x0, pars[[i]]$y0, pch= ".")
 
+points(c[1], c[2], pch=19, col = "red")
 
 
