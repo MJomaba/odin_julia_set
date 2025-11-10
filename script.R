@@ -9,7 +9,7 @@ julia <- dust2::dust_system_create(generator = julia_mod,
 
 #Run for n iterations
 n_iter <- 50
-z <- dust_system_simulate(julia, times = n_iter)
+z <- dust2::dust_system_simulate(julia, times = n_iter)
 
 #Plot resulting set
 plot(z[1,,1],z[2,,1],
