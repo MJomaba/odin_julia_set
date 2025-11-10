@@ -24,9 +24,11 @@ dust_system_set_state_initial(julia)
 n_iter <- 1:50
 z_julia <- dust2::dust_system_simulate(julia, times = n_iter)
 
-plot(z_julia[1, , 15], z_julia[2, , 15], pch = ".")
+  plot(z_julia[1, , 30], z_julia[2, , 30], pch = ".")
 
 for(i in 1:n_samples)
 {
   points(pars[[i]]$x0, pars[[i]]$y0, pch= ".")
 }
+
+

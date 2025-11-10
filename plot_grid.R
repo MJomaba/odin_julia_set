@@ -29,7 +29,7 @@ z_plus  <- cbind(rho * cos(phi),         rho * sin(phi))
 z_minus <- cbind(rho * cos(phi + pi),    rho * sin(phi + pi))
 
 # Simulate / plot Julia set points (depends on what script.R defines)
-z_julia <- dust2::dust_system_simulate(julia, times = n_iter)
+z_julia <- dust2::dust_system_simulate(julia, times = 1:n_iter)
 
 plot(z_julia[1,,1], z_julia[2,,1],
      pch = ".", xlim = c(-2, 2), ylim = c(-1.5, 1.5))
