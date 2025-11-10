@@ -36,8 +36,8 @@ for(i in 1:n_samp){
   z_minus[i,2] <- rho*sin(phi+3.141593)
 }
 
-z_julia <- julia$run(n_iter)
-plot(z_julia[1,],z_julia[2,],
+z_julia <- dust_system_simulate(julia, times = n_iter)
+plot(z_julia[1,,1],z_julia[2,,1],
        pch=".", xlim=c(-2,2), ylim=c(-1.5,1.5))
 points(z_plus[,1],z_plus[,2], pch=".", col="red")
 points(z_minus[,1],z_minus[,2], pch=".", col="blue")
