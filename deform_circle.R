@@ -7,12 +7,11 @@ set.seed(42)
 n_samples <- 10000
 init_angle <- runif(n_samples) * 2 * pi
 
+c <- c(-0.8,0.156)
 pars <- lapply(init_angle, function(theta) { list(x_c=c[1], y_c=c[2],
                                                   p=.75,
                                                   x0 = cos(theta),
                                                   y0 = sin(theta)) })
-
-c <- c(-0.8,0.156)
 n_p <- 1
 julia <- dust2::dust_system_create(generator = julia_mod,
                                    pars = pars,
@@ -27,8 +26,7 @@ z_julia <- dust2::dust_system_simulate(julia, times = n_iter)
   plot(z_julia[1, , 30], z_julia[2, , 30], pch = ".")
 
 for(i in 1:n_samples)
-{
   points(pars[[i]]$x0, pars[[i]]$y0, pch= ".")
-}
+
 
 
