@@ -30,4 +30,5 @@ for(i in 1:n_samples)
 
 points(c[1], c[2], pch=19, col = "red")
 
+lines(c(-2, c[1]), c(c[2], c[2]), lty = 3 )
 
