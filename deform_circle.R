@@ -32,3 +32,7 @@ points(c[1], c[2], pch=19, col = "red")
 
 lines(c(-2, c[1]), c(c[2], c[2]), lty = 3 )
 
+eps_y <- 0.02
+rect(-2, c[2] - eps_y, c[1], c[2], col = "#ff000033", border = NA)
+rect(-2, c[2] + eps_y, c[1], c[2], col = "#0000ff33", border = NA)
+
