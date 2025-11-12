@@ -14,6 +14,8 @@ swap <- sample(c(TRUE, FALSE), n_samp, replace = TRUE)
 z <- cbind(x1, x2)
 z[swap, ] <- z[swap, 2:1]
 z <- a + z * (b - a)  # map to [a,b]
+z[,2] <- z[,2] + c[2]
+z[,1] <- z[,1]
 
 # Parameter c for z^2 + c
 c_re <- -0.8; c_im <- 0.156
@@ -32,7 +34,9 @@ z_minus <- cbind(rho * cos(phi + pi),    rho * sin(phi + pi))
 z_julia <- dust2::dust_system_simulate(julia, times = n_iter)
 
 plot(z_julia[1,,1], z_julia[2,,1],
-     pch = ".", xlim = c(-2, 2), ylim = c(-1.5, 1.5))
+     pch = ".", xlim = c(-1.5, 1.5), ylim = c(-1.5, 1.5))
 points(z_plus[,1],  z_plus[,2],  pch = ".", col = "red")
 points(z_minus[,1], z_minus[,2], pch = ".", col = "blue")
 points(z[,1],       z[,2],       pch = ".", col = "grey")
+
+points(c[1], c[2], pch = 19, col = "green")
