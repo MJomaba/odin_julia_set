@@ -1,5 +1,5 @@
 julia_mod <- odin.dust::odin_dust("iim_julia.R")
-mod <- odin.dust::odin_dust("iim_sierpinski.R")
+mod <- odin.dust::odin_dust("odin_models/iim_sierpinski.R")
 
 
 sierpinski <- mod$new(pars=list(), 0, 1000000)
