@@ -4,7 +4,7 @@ library(dust2)
 julia_mod <- odin2::odin("odin_models/iim_julia_init_stretch_and_track.R")
 
 set.seed(42)
-n_samples <- 200
+n_samples <- 2000
 #init_angle <- runif(n_samples) * 2 * pi
 init_angle <- (1:n_samples)/n_samples  * 2 * pi
 
